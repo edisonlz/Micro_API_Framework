@@ -1,0 +1,50 @@
+{
+  "micro":{
+      "auth_service": {
+          "name": "api.micro.framework.service.auth",
+          "address": "127.0.0.1",
+          "port": 9030
+      },
+      "user_service":{
+        "name": "api.micro.framework.service.user",
+        "address": "127.0.0.1",
+        "port": 9090
+      },
+      "user_api":{
+        "name":"api.micro.framework.api.user",
+        "address": "127.0.0.1",
+        "port": 10000
+      },
+      "etcd":{
+          "enabled": true,
+          "host":"localhost",
+          "port": 2379
+      },
+      "db":{
+          "mysql":{
+              "enabled": true,
+              "url": "root:xsw2CDE#@(127.0.0.1:3306)/micro_book_mall?charset=utf8&parseTime=true",
+              "maxIdleConnection": 100,
+              "maxOpenConnection": 130
+          }
+      },
+      "redis":{
+          "enabled": true,
+          "conn": "127.0.0.1:6379",
+          "dbNum": 8,
+          "password":"",
+          "timeout": 3000,
+          "sentinel":{
+              "enabled": false,
+              "master": "api",
+              "nodes": "127.0.0.1:16379,127.0.0.1:26379,127.0.0.1:36379"
+          }
+      },
+      "jwt":{
+        "secretKey": "W6VjDud2W1kMG3BicbMNlGgI4ZfcoHtMGLWr"
+      }
+  }
+}
+
+
+
