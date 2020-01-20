@@ -164,6 +164,10 @@ CREATE TABLE `user`
   INSERT INTO user (user_id, user_name, pwd) VALUE (10001, 'micro', '123');
 
 ```
+启动micro
+```gp
+$ micro --registry=etcd --selector=cache --client_pool_size=10  --api_namespace=api.micro.platform.web  api --handler=web
+```
 
 ```bash
 curl --request POST   --url http://127.0.0.1:8080/user/login   --header 'Content-Type: application/x-www-form-urlencoded'  --data 'userName=micro&pwd=123'
