@@ -141,6 +141,9 @@ docker run -d --name jaeger
 -p 9411:9411 
 jaegertracing/all-in-one:1.6
 ```
+
+![jaegerui](jaegerui.png)
+
 7.创建用户表，并测试返回结果
 ```sql
 CREATE TABLE `user`
