@@ -11,13 +11,10 @@
 Framework特点：
  
 - **功能丰富** ：[beego](https://beego.me/) MVC模型,RPC,API；
-
 - **深度整合** ：[micro](https://github.com/micro/micro) 框架。
 - **服务安全** ：采用 [hystrix](https://github.com/afex/hystrix-go)做熔断和降价处理
-
 - **全链路日志跟踪** ：采用opentracing框架的[jaeger](https://github.com/jaegertracing/jaeger)开源项目
 - **得心应手** ：简单的实例，非常容易上手；
-
 **轻量级框架** 请参见 [Gin_API_Framework](https://github.com/edisonlz/Gin_API_Framework)
 #### framework 架构图
 ![framework](framework.png)
