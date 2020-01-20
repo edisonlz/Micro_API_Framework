@@ -3,7 +3,10 @@
 @(示例笔记本)[马克飞象|帮助|Markdown]
 
 **Micro API Framework** 是一款基于go-micro 打造的微服务框架，
-项目参考micro-go 中文社区 https://github.com/micro-in-cn/ 
+项目参考micro-go [中文社区](https://github.com/micro-in-cn/)
+
+如果您考虑采用**微服务框架** 请参见 [Micro_API_Framework](https://github.com/edisonlz/Micro_API_Framework)
+
 
 Framework特点：
  
@@ -15,7 +18,7 @@ Framework特点：
 - **全链路日志跟踪** ：采用opentracing框架的[jaeger](https://github.com/jaegertracing/jaeger)开源项目
 - **得心应手** ：简单的实例，非常容易上手；
 
-
+**轻量级框架** 请参见 [Gin_API_Framework](https://github.com/edisonlz/Gin_API_Framework)
 #### framework 架构图
 ![framework](framework.png)
 
