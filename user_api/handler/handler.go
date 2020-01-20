@@ -9,6 +9,7 @@ import (
 	auth "Micro_API_Framework/auth_service/proto/auth"
 	"Micro_API_Framework/plugins/session"
 	us "Micro_API_Framework/user_service/proto/user"
+	user_service_api "Micro_API_Framework/user_api/service_request"
 	"github.com/micro/go-micro/client"
 	"github.com/micro/go-micro/util/log"
 	"github.com/micro/go-plugins/wrapper/breaker/hystrix"
@@ -34,9 +35,10 @@ func Init() {
 }
 
 
+
 // Login 登录入口
 func Login(w http.ResponseWriter, r *http.Request) {
-	ctx := r.Context()
+	//ctx := r.Context()
 
 	// 只接受POST请求
 	if r.Method != "POST" {
@@ -44,14 +46,9 @@ func Login(w http.ResponseWriter, r *http.Request) {
 		http.Error(w, "非法请求", 400)
 		return
 	}
-
 	r.ParseForm()
-
-	// 调用后台服务
-	rsp, err := serviceClient.QueryUserByName(ctx, &us.Request{
-		UserName: r.Form.Get("userName"),
-	})
-
+	rsp, err := user_service_api.ServiceQueryUserName(serviceClient, r, r.Form.Get("userName"))
+	
 	if err != nil {
 		http.Error(w, err.Error(), 400)
 		return
@@ -61,14 +58,10 @@ func Login(w http.ResponseWriter, r *http.Request) {
 	response := map[string]interface{}{
 		"ref": time.Now().UnixNano(),
 	}
-
+	
 	if rsp.User.Pwd == r.Form.Get("pwd") {
 		// 生成token
-		token_response, err := authClient.MakeAccessToken(ctx, &auth.Request{
-			UserId:   rsp.User.Id,
-			UserName: rsp.User.Name,
-		})
-
+		token_response, err := user_service_api.ServiceAuth(authClient,r,rsp)
 		if err != nil {
 			log.Logf("[Login] 创建token失败，err：%s", err)
 			http.Error(w, err.Error(), 500)
@@ -78,7 +71,6 @@ func Login(w http.ResponseWriter, r *http.Request) {
 		response["token"] = token_response.Token
 		response["data"] = rsp.User
 		response["success"] = true
-
 	
 		w.Header().Add("set-cookie", "application/json; charset=utf-8")
 

@@ -9,7 +9,7 @@ import (
 	"Micro_API_Framework/basic/config"
 	tracer "Micro_API_Framework/plugins/tracer/jaeger"
 	"Micro_API_Framework/user_service/handler"
-	"Micro_API_Framework/user_service/model"
+	_ "Micro_API_Framework/user_service/model"
 	s "Micro_API_Framework/user_service/proto/user"
 	"github.com/micro/cli"
 	"github.com/micro/go-micro"
@@ -60,8 +60,7 @@ func main() {
 	// 服务初始化
 	service.Init(
 		micro.Action(func(c *cli.Context) {
-			// 初始化模型层
-			model.Init()
+
 			// 初始化handler
 			handler.Init()
 		}),

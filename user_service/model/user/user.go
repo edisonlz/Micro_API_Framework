@@ -1,43 +1,40 @@
 package user
 
-import (
-	"fmt"
-	"sync"
-
-	proto "Micro_API_Framework/user_service/proto/user"
+import  (
+    "github.com/astaxie/beego/orm"
+    "fmt"
+    proto "Micro_API_Framework/user_service/proto/user"
 )
 
-var (
-	s *service
-	m sync.RWMutex
-)
-
-// service 服务
-type service struct {
+type User struct {
+    Id     int64    `orm:"auto"`
+    UserName   string `orm:"size(10)"`
+    UserId string `orm:"size(10)"`
+    Pwd  string `orm:"size(32)"`
 }
 
-// Service 用户服务类
-type Service interface {
-	// QueryUserByName 根据用户名获取用户
-	QueryUserByName(userName string) (ret *proto.User, err error)
+
+
+func QueryUserByName(userName string) (ret *proto.User, err error) {
+
+
+	var user User
+
+    o := orm.NewOrm()
+    qs := o.QueryTable("user")
+
+    errs := qs.Filter("UserName", userName).One(&user)
+    fmt.Println(errs)
+    if errs != nil {
+        fmt.Println(errs)
+        
+    }
+ 
+    ret = &proto.User{}
+    ret.Id = user.Id
+    ret.Name = user.UserName
+    ret.Pwd = user.Pwd
+	return ret , errs
 }
 
-// GetService 获取服务类
-func GetService() (Service, error) {
-	if s == nil {
-		return nil, fmt.Errorf("[GetService] GetService 未初始化")
-	}
-	return s, nil
-}
 
-// Init 初始化用户服务层
-func Init() {
-	m.Lock()
-	defer m.Unlock()
-
-	if s != nil {
-		return
-	}
-
-	s = &service{}
-}
