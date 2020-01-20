@@ -5,7 +5,7 @@
 **Micro API Framework** 是一款基于go-micro 打造的微服务框架，
 项目参考micro-go [中文社区](https://github.com/micro-in-cn/)
 
-如果您考虑采用**微服务框架** 请参见 [Micro_API_Framework](https://github.com/edisonlz/Micro_API_Framework)
+如果您考虑采用**轻量级服务框架** 请参见 [Gin_API_Framework](https://github.com/edisonlz/Gin_API_Framework)
 
 
 Framework特点：
