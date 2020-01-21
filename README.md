@@ -2,7 +2,7 @@
 
 @(示例笔记本)[马克飞象|帮助|Markdown]
 
-Micro API Framework 是一款基于go-micro打造的start-kit微服务框架，项目参考micro-go [中文社区](https://github.com/micro-in-cn/)。
+Micro API Framework 是一款基于go-micro打造的starter-kit微服务框架，项目参考micro-go [中文社区](https://github.com/micro-in-cn/)。
 
 如果您考虑采用**轻量级服务框架** 请参见 [Gin_API_Framework](https://github.com/edisonlz/Gin_API_Framework)
 
