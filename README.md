@@ -14,7 +14,11 @@ Framework特点：
 - **服务安全** ：采用 [hystrix](https://github.com/afex/hystrix-go)做熔断和降价处理
 - **全链路日志跟踪** ：采用opentracing框架的[jaeger](https://github.com/jaegertracing/jaeger)开源项目
 - **得心应手** ：简单的实例，非常容易上手；
+- **日志持久化**： 日志持久化引入[zap](https://github.com/uber-go/zap)
+  
 **轻量级框架** 请参见 [Gin_API_Framework](https://github.com/edisonlz/Gin_API_Framework)
+
+
 #### framework 架构图
 ![framework](framework.png)
 
@@ -171,12 +175,17 @@ curl --request POST   --url http://127.0.0.1:8080/user/login   --header 'Content
 
 
 
+8. **日志持久化**： 日志持久化引入[zap](https://github.com/uber-go/zap)
+
+  
+
+
+
 **最后** 启动broker的消息队列服务建议采用分布式队列 NATS
 详见 https://docs.nats.io/
 
 #### 下个版本升级
 - 1.recover引入
-- 2.[zap](https://github.com/uber-go/zap)日志持久化引入
-- 3.分布式配置系统
+- 2.分布式配置系统
 
 

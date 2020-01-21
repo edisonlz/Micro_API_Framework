@@ -14,17 +14,22 @@ import (
 	"github.com/micro/go-micro"
 	"github.com/micro/go-micro/registry"
 	"github.com/micro/go-micro/registry/etcd"
-	"github.com/micro/go-micro/util/log"
+	//"github.com/micro/go-micro/util/log"
 	"github.com/micro/go-plugins/config/source/grpc"
 	openTrace "github.com/micro/go-plugins/wrapper/trace/opentracing"
 	"github.com/opentracing/opentracing-go"
 	_ "Micro_API_Framework/plugins/redis"
+	z "Micro_API_Framework/plugins/zap"
+	"go.uber.org/zap"
 )
 
 var (
+	log = z.GetLogger()
 	appName = "auth_service"
 	cfg     = &authCfg{}
+	
 )
+
 
 type authCfg struct {
 	common.AppCfg
@@ -39,7 +44,7 @@ func main() {
 
 	t, io, err := tracer.NewTracer(cfg.Name, "")
 	if err != nil {
-		log.Fatal(err)
+		log.Error("[main] error")
 	}
 	defer io.Close()
 	opentracing.SetGlobalTracer(t)
@@ -68,7 +73,7 @@ func main() {
 
 	// 启动服务
 	if err := service.Run(); err != nil {
-		log.Fatal(err)
+		log.Error("[main ayth] service")
 	}
 }
 
@@ -95,7 +100,9 @@ func initCfg() {
 		panic(err)
 	}
 
-	log.Logf("[initCfg] 配置，cfg：%v", cfg)
+	//log.Info("[initCfg] 配置，cfg：%v", cfg)
+
+	log.Info("[initCfg] 配置", zap.Any("cfg", cfg))
 
 	return
 }

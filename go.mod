@@ -14,9 +14,11 @@ require (
 	github.com/micro/cli v0.2.0
 	github.com/micro/go-micro v1.18.0
 	github.com/micro/go-plugins v1.5.1
+	github.com/natefinch/lumberjack v2.0.0+incompatible
 	github.com/opentracing/opentracing-go v1.1.0
 	github.com/shiena/ansicolor v0.0.0-20151119151921-a422bbe96644 // indirect
 	github.com/uber/jaeger-client-go v2.22.0+incompatible
 	github.com/uber/jaeger-lib v2.2.0+incompatible // indirect
+	go.uber.org/zap v1.13.0
 	google.golang.org/grpc v1.26.0 // indirect
 )

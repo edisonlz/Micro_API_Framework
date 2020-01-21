@@ -3,7 +3,16 @@
       "auth_service": {
           "name": "api.micro.framework.service.auth",
           "address": "127.0.0.1",
-          "port": 9030
+          "port": 9030,
+          "zap": {
+                  "level": "error",
+                  "development": true,
+                  "logFileDir": "",
+                  "outputPaths": [],
+                  "maxSize": 50,
+                  "maxBackups": 200,
+                  "maxAge": 10
+                }
       },
       "user_service":{
         "name": "api.micro.framework.service.user",

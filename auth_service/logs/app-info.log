@@ -1,0 +1,2 @@
+{"level":"info","ts":1579575975.023919,"caller":"zap/zap.go:50","msg":"[initLogger] zap plugin initializing completed"}
+{"level":"info","ts":1579575975.024496,"caller":"auth_service/main.go:105","msg":"[initCfg] 配置","cfg":{"name":"api.micro.framework.service.auth","version":"","address":"127.0.0.1","port":9030}}
